@@ -1,0 +1,29 @@
+#!/usr/bin/env python
+from contextlib import suppress
+import re
+import subprocess
+from subprocess import check_output
+import sys
+
+
+def main():
+    commit_msg_filepath = sys.argv[1]
+
+    with suppress(subprocess.CalledProcessError):
+        branch = check_output(
+            ['git', 'symbolic-ref', '--short', 'HEAD']
+        ).strip()
+        if not isinstance(branch, str):
+            branch = branch.decode()
+        result = re.match(r'^(\w+?-\w+?)(-.*)$', branch)
+        if not result:
+            return
+        issue_number = result.group(1)
+        with open(commit_msg_filepath, 'r+') as f:
+            content = f.read()
+            f.seek(0, 0)
+            f.write("%s: %s" % (issue_number, content))
+
+
+if __name__ == "__main__":
+    main()

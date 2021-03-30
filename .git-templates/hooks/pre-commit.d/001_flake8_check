@@ -1,0 +1,9 @@
+python -m pyflakes .
+if [[ $? != 0 ]];
+then
+	echo "Flake8 errors!"
+	exit 1
+else
+	echo "Flake8 ok!"
+	exit 0
+fi
