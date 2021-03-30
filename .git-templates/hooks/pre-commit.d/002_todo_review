@@ -1,1 +1,4 @@
-egrep -or "\STODO:\S.*" . --exclude=.git
+egrep -or "\STODO:\S.*" $(pwd "../../") --exclude-dir={.git,__pycache__} --exclude=002_todo_review 
+if [ $? == 2 ]; then
+    exit 1
+fi
