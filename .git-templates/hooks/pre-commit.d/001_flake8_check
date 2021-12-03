@@ -1,5 +1,5 @@
-python -m pyflakes .
-if [[ $? != 0 ]];
+python3 -m flake8 .
+if [ $? != 0 ];
 then
 	echo "Flake8 errors!"
 	exit 1
