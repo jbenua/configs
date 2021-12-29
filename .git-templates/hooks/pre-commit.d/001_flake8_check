@@ -1,9 +1,9 @@
+#!/usr/bin/env bash
+
 python3 -m flake8 .
-if [ $? != 0 ];
-then
-	echo "Flake8 errors!"
-	exit 1
-else
-	echo "Flake8 ok!"
-	exit 0
-fi
+test $? -ne 0 && {
+	echo "Flake8 errors!";
+	exit 1;
+}
+
+echo "Flake8 ok!"

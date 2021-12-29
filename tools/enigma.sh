@@ -7,7 +7,7 @@ function usage {
 	or echo <text> | ${0} [count] [days]
 	<text> - text to send to enigma.bk.ru
 	[count] - get [count] different links for this text, default 1.
-    [days] - due [days] days from now, default 3, min 1.
+	[days] - due [days] days from now, default 3, min 1.
 
 	Example: ${0} P@ssword - Get one link, that will expire in 1 day
 	         echo -e \"Login\\\nP@ssw0rd\" | ${0} 3 1 - Get 3 links, that will expire in 1 day
