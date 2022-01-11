@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 for hook in $(dirname "$0")/pre-commit.d/* ; do
     bash $hook
@@ -8,5 +8,3 @@ for hook in $(dirname "$0")/pre-commit.d/* ; do
         exit $RESULT
     fi
 done
-
-exit 0
