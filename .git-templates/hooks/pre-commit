@@ -5,7 +5,7 @@ for hook in $(dirname "$0")/pre-commit.d/* ; do
     then
         bash $hook
         RESULT=$?
-        if [ $RESULT != 0 ]; then
+        if [ test $RESULT -ne 0 ]; then
             echo "$hook returned non-zero: $RESULT, abort commit"
             exit $RESULT
         fi

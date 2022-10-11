@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
-
-egrep -or "\STODO:\S.*" $(pwd "../../") --exclude-dir={.git,__pycache__,.env} --exclude=002_todo_review 
-test $? -eq 2 && exit 1
+egrep -ior "\STODO:\S.*" --exclude-dir={.git,__pycache__,.env} --exclude=002_todo_review 
+test $? -ne 1 && exit 1
