@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+isort . -c --diff --skip __pycache__ --skip .env --skip .git --skip node_modules
+test $? -ne 0 && {
+    echo "isort errors!";
+    exit 1;
+}
+
+echo "isort ok!"

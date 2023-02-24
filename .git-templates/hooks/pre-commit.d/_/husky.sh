@@ -1,0 +1,1 @@
+/home/eugenia/monetization_trap/.husky/_/husky.sh

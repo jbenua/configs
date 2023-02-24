@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+test $(find . -type f -name '*.py' ! -path .git ! -path '*__pycache__*' ! -path '*.env*' -exec egrep -H '\sp?print' {} \; | wc -l) = 0
