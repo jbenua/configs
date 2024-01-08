@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-python3 -m flake8 .
+python3 -m flake8 . --extend-exclude node_modules,.env
 test $? -ne 0 && {
 	echo "Flake8 errors!";
 	exit 1;

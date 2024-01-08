@@ -1,0 +1,8 @@
+black . --check -l 79 --extend-exclude node_modules,.env
+test $? -ne 0 && {
+    echo "Black errors!";
+    black . --diff --color --extend-exclude node_modules,.env -l 79
+    exit 1;
+}
+
+echo "Black ok!"
